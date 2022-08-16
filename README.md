@@ -33,7 +33,7 @@ Type `make help` to get a list of available commands.
 ### Web paths
 
 **Symfony App**: http://localhost:80  
-**VueJS App**: http://localhost:3000
+**VueJS App**: http://localhost:3001
 
 ### Database
 **PostgreSQL**  
