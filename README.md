@@ -1,5 +1,5 @@
-# Vue-Symfony-MariaDB-in-Docker
-Complete stack for an web API based application.
+# Workshop
+Workshop app
 
 ## 1) Installation
 
@@ -18,7 +18,6 @@ $> git clone git@github.com:Kodmit/Vue-Symfony-Postgres-in-Docker.git
 
 2. Go to the root of the directory and init the project
 ```shell script
-$> cd golem_symfony
 $> make init
 ```
 
@@ -34,17 +33,15 @@ Type `make help` to get a list of available commands.
 ### Web paths
 
 **Symfony App**: http://localhost:80  
-**VueJS App**: http://localhost:3000  
-**PhpMyAdmin**: http://localhost:8080  
-**MailDev**: http://localhost:8001  
+**VueJS App**: http://localhost:3000
 
 ### Database
-**MariaDB**  
+**PostgreSQL**  
 HOST: localhost  
-PORT: 3306   
-DATABASE: docker  
-USER: user  
-PASSWORD: password  
+PORT: 5432   
+DATABASE: workshop  
+USER: root  
+PASSWORD: root  
 
 ## 3) Conventions
 
