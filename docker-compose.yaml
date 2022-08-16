@@ -1,0 +1,51 @@
+version: '3.6'
+services:
+  apache:
+    build: ops/apache
+    container_name: app_apache
+    depends_on:
+      - php
+    ports:
+      - '80:80'
+    volumes:
+      - './ops/apache/config/vhosts:/etc/apache2/sites-enabled'
+      - './symfony:/home/wwwroot/symfony'
+
+  php:
+    build: ops/php
+    container_name: app_php
+    depends_on:
+      - postgres
+    volumes:
+      - './symfony:/home/wwwroot/symfony'
+
+  node:
+    build:
+      context: ./
+      dockerfile: ./ops/node/Dockerfile
+    container_name: app_node
+    depends_on:
+      - apache
+      - postgres
+    working_dir: /app
+    ports:
+      - '3001:8080'
+    volumes:
+      - './vue:/app'
+      - '/app/node_modules/'
+
+  postgres:
+    image: postgres:11
+    container_name: app_postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - "postgres:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: dly
+
+volumes:
+  postgres:
